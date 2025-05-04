@@ -1,6 +1,14 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 QUESTIONS = [
     {"id": "q1", "body": "1/2 + 1/3 = ?", "answer": "5/6"},
