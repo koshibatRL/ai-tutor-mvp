@@ -1,3 +1,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Duolingo風のカラーパレット */
+:root {
+  --primary-green: #58cc02;
+  --primary-green-hover: #46a302;
+  --primary-blue: #1cb0f6;
+  --primary-blue-hover: #0c95d4;
+  --primary-orange: #ff9600;
+  --primary-purple: #ce82ff;
+  --background-gray: #f7f7f7;
+}
+
+/* 全体のフォントと背景 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-gray);
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Duolingo風のボタン */
+.btn-primary {
+  @apply bg-[#58cc02] text-white font-bold py-3 px-4 rounded-xl hover:bg-[#46a302] transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-[#1cb0f6] text-white font-bold py-3 px-4 rounded-xl hover:bg-[#0c95d4] transition-colors;
+}
+
+/* カード */
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6;
+}
+
+/* カードホバーエフェクト */
+.card-hover {
+  @apply transform transition duration-300 hover:scale-105;
+}
+
+/* 進捗バー */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-3;
+}
+
+.progress-bar-fill {
+  @apply bg-[#58cc02] h-3 rounded-full transition-all duration-300;
+}
+
+/* モバイル表示の調整 */
+@media (max-width: 640px) {
+  .container {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem;
+  }
+}
